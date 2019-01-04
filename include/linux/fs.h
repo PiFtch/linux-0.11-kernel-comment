@@ -33,8 +33,8 @@ void buffer_init(long buffer_end);
 #define MAJOR(a) (((unsigned)(a))>>8)
 #define MINOR(a) ((a)&0xff)
 
-#define NAME_LEN 14
-#define ROOT_INO 1
+#define NAME_LEN 14			// 名字长度值
+#define ROOT_INO 1			// 根i节点
 
 #define I_MAP_SLOTS 8
 #define Z_MAP_SLOTS 8
@@ -154,9 +154,9 @@ struct d_super_block {
 	unsigned short s_magic;
 };
 
-struct dir_entry {
-	unsigned short inode;
-	char name[NAME_LEN];
+struct dir_entry {					// 文件目录项结构
+	unsigned short inode;			// i节点号
+	char name[NAME_LEN];			// 文件名
 };
 
 extern struct m_inode inode_table[NR_INODE];
